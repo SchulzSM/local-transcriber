@@ -3,7 +3,7 @@ Sichtbare Texte (Programmname, Beschreibung, Lizenzhinweise) stehen in den Sprac
 NAME ist der feste Programmname für maschinenlesbare Ausgaben (.json)."""
 __version__ = "1.0.0"
 NAME = "Transkribieren (lokal)"
-AUTOR = "Stefan M. Schulz"
+AUTOR = "Prof. Dr. Stefan M. Schulz"
 KONTAKT = "kommunaut@gmail.com"
 REPO_NAME = "local-transcriber"
 REPO_URL = "https://github.com/SchulzSM/local-transcriber"

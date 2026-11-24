@@ -1,6 +1,6 @@
 # Transkribieren (lokal) – Anleitung für die Exe
 
-Version 1.0.0 · © 2026 Stefan M. Schulz · Lizenz: MIT ·
+Version 1.0.0 · © 2026 Prof. Dr. Stefan M. Schulz · Lizenz: MIT ·
 [github.com/SchulzSM/local-transcriber](https://github.com/SchulzSM/local-transcriber) ·
 Fragen und Fehler: [GitHub Issues](https://github.com/SchulzSM/local-transcriber/issues) · Kontakt: kommunaut@gmail.com
 

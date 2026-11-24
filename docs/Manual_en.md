@@ -1,6 +1,6 @@
 # Local Transcriber – Manual for the exe
 
-Version 1.0.0 · © 2026 Stefan M. Schulz · License: MIT ·
+Version 1.0.0 · © 2026 Prof. Dr. Stefan M. Schulz · License: MIT ·
 [github.com/SchulzSM/local-transcriber](https://github.com/SchulzSM/local-transcriber) ·
 Questions and bugs: [GitHub Issues](https://github.com/SchulzSM/local-transcriber/issues) · Contact: kommunaut@gmail.com
 

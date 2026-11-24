@@ -3,7 +3,7 @@
 Offline-Transkription von Audio, Video und DVD mit [faster-whisper](https://github.com/SYSTRAN/faster-whisper).
 Alles läuft auf dem eigenen Rechner – keine Internetverbindung, keine Datei verlässt den Rechner.
 
-Version 1.0.0 · © 2026 Stefan M. Schulz · Lizenz: MIT (`LICENSE`) ·
+Version 1.0.0 · © 2026 Prof. Dr. Stefan M. Schulz · Lizenz: MIT (`LICENSE`) ·
 Fragen und Fehler: [GitHub Issues](https://github.com/SchulzSM/local-transcriber/issues) · Kontakt: kommunaut@gmail.com
 
 *English summary below.*
