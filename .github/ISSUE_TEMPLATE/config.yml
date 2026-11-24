@@ -1,0 +1,11 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Anleitung (Deutsch)
+    url: https://github.com/SchulzSM/local-transcriber/blob/main/docs/Anleitung_Exe.md
+    about: Bedienung, Einrichtung, häufige Probleme.
+  - name: Manual (English)
+    url: https://github.com/SchulzSM/local-transcriber/blob/main/docs/Manual_en.md
+    about: Usage, setup, common problems.
+  - name: Kontakt per E-Mail / Contact by e-mail
+    url: https://github.com/SchulzSM/local-transcriber#readme
+    about: "kommunaut@gmail.com – für Anliegen, die nicht öffentlich sein sollen. / For matters that should not be public."

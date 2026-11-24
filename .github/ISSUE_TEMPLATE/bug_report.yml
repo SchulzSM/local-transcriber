@@ -1,0 +1,64 @@
+name: Fehler melden / Bug report
+description: Etwas funktioniert nicht wie erwartet. / Something does not work as expected.
+labels: ["bug"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Danke für die Meldung! Bitte vorher kurz in der Anleitung unter „Häufige Probleme“ nachsehen.
+        Thanks for reporting! Please check “Common problems” in the manual first.
+        [Anleitung (Deutsch)](https://github.com/SchulzSM/local-transcriber/blob/main/docs/Anleitung_Exe.md#11-häufige-probleme) · [Manual (English)](https://github.com/SchulzSM/local-transcriber/blob/main/docs/Manual_en.md#11-common-problems)
+
+        **Datenschutz / Privacy:** Keine Transkripte, Audiodateien, Namen oder vertraulichen Pfade einfügen – Issues sind öffentlich.
+        Do not paste transcripts, audio, names or confidential paths – issues are public.
+  - type: input
+    id: version
+    attributes:
+      label: Programmversion / Program version
+      description: Reiter „Info“ bzw. `--version` / “About” tab or `--version`
+      placeholder: "1.0.0"
+    validations:
+      required: true
+  - type: dropdown
+    id: fassung
+    attributes:
+      label: Fassung / Edition
+      options:
+        - Exe (Transkribieren.exe)
+        - Python (Transkribieren.bat / src\app.py)
+    validations:
+      required: true
+  - type: input
+    id: windows
+    attributes:
+      label: Windows-Version
+      placeholder: "Windows 11 23H2"
+    validations:
+      required: true
+  - type: input
+    id: modell
+    attributes:
+      label: Modell / Model
+      description: z. B. / e.g. whisper-large-v3-turbo-german-ct2, faster-whisper-large-v3
+  - type: textarea
+    id: was
+    attributes:
+      label: Was ist passiert? / What happened?
+      description: Und was hätten Sie erwartet? / And what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: schritte
+    attributes:
+      label: Schritte zum Nachstellen / Steps to reproduce
+      placeholder: |
+        1. …
+        2. …
+  - type: textarea
+    id: meldung
+    attributes:
+      label: Fehlermeldung oder Auszug aus der Protokolldatei / Error message or excerpt from the log file
+      description: >
+        Aus dem Fortschrittsfenster oder `<name>_protokoll.txt`. Pfade und Namen bitte kürzen oder unkenntlich machen.
+        From the progress window or `<name>_protokoll.txt`. Please shorten or redact paths and names.
+      render: text

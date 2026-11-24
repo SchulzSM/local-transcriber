@@ -1,0 +1,21 @@
+name: Wunsch / Feature request
+description: Idee für eine neue Funktion oder Verbesserung. / Idea for a new feature or improvement.
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: anliegen
+    attributes:
+      label: Anliegen / What is the need?
+      description: Was möchten Sie erreichen, und was fehlt dafür bisher? / What do you want to achieve, and what is missing?
+    validations:
+      required: true
+  - type: textarea
+    id: nutzen
+    attributes:
+      label: Nutzen / Benefit
+      description: Wofür und wie oft würden Sie es brauchen? / What for and how often would you use it?
+  - type: textarea
+    id: vorschlag
+    attributes:
+      label: Vorschlag / Suggestion
+      description: Wie könnte es aussehen (optional)? / How could it work (optional)?
