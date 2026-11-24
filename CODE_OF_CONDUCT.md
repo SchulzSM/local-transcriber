@@ -1,8 +1,3 @@
-> **Deutsch:** Dieses Projekt folgt dem Contributor Covenant 2.1. Eine
-> [deutsche Übersetzung](https://www.contributor-covenant.org/de/version/2/1/code_of_conduct/) steht auf der Website
-> des Contributor Covenant; maßgeblich ist der englische Text unten. Meldungen an kommunaut@gmail.com.
-
-
 # Contributor Covenant Code of Conduct
 
 ## Our Pledge
@@ -87,3 +82,8 @@ For answers to common questions about this code of conduct, see the FAQ at [http
 [FAQ]: https://www.contributor-covenant.org/faq
 [translations]: https://www.contributor-covenant.org/translations
 
+---
+
+> **Deutsch:** Dieses Projekt folgt dem Contributor Covenant 2.1. Eine
+> [deutsche Übersetzung](https://www.contributor-covenant.org/de/version/2/1/code_of_conduct/) steht auf der Website
+> des Contributor Covenant; maßgeblich ist der englische Text oben. Meldungen an kommunaut@gmail.com.

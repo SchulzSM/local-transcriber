@@ -52,6 +52,16 @@ faster-whisper. Je Modell auf Hugging Face unter *Files and versions* die Dateie
 Die Standardpfade neuer Profile entsprechen diesen Namen unter `C:\LLMs\` (z. B.
 `C:\LLMs\whisper-large-v3-turbo-german-ct2`).
 
+## Lizenz / License
+
+MIT ([LICENSE](LICENSE)). Die Exe enthält Python, faster-whisper, CTranslate2 und weitere Pakete unter deren eigenen
+Lizenzen (`THIRD_PARTY_LICENSES.txt` im ZIP). ffmpeg und die Modelle sind nicht enthalten und unterliegen eigenen
+Lizenzen. / The exe bundles Python, faster-whisper, CTranslate2 and further packages under their own licenses
+(`THIRD_PARTY_LICENSES.txt` in the ZIP); ffmpeg and the models are not included.
+
+Mitwirken / Contributing: [CONTRIBUTING.md](CONTRIBUTING.md) · Verhaltenskodex / Code of Conduct:
+[CODE_OF_CONDUCT.md](CODE_OF_CONDUCT.md)
+
 ## English summary
 
 **local-transcriber** transcribes audio, video and DVDs completely offline with faster-whisper on Windows. No
