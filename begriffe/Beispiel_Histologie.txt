@@ -1,0 +1,12 @@
+# Fachbegriffe für die Transkription (UTF-8)
+# Ein Begriff je Zeile oder mehrere durch Komma getrennt; alles nach # wird ignoriert.
+# Kurz halten: Whisper nutzt höchstens 223 Tokens (etwa 40–60 Begriffe). Besser eine Datei je Thema.
+Histologie, Epithelgewebe, Bindegewebe, Stützgewebe
+Muskelgewebe, Nervengewebe
+Parenchym, Stroma, Interzellulärsubstanz
+Plattenepithel, Zylinderepithel, Übergangsepithel, Flimmerepithel
+Basalmembran, Kollagen, Elastin, Fibroblasten
+Chondrozyten, Osteozyten, Osteoblasten, Osteoklasten
+hyaliner Knorpel, Faserknorpel, elastischer Knorpel
+Neuron, Gliazellen, Myelinscheide
+Regeneration, Narbe, Karzinom, Carcinoma in situ

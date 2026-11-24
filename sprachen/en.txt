@@ -1,0 +1,287 @@
+# language: English
+# code: en
+# version: 1.0.0
+# manual: Manual_en.md
+#
+# Interface language file (English). Reference: de.txt.
+# Format: key = text. Never change the key, only the text on the right.
+# {name} is a placeholder and must appear in every translation; {Tools} is kept literally.
+# \n = line break. New language: copy this file, e.g. as fr.txt, adjust the header lines, translate.
+# Check: Transkribieren --cli --sprachen-pruefen
+
+# ---------------------------------------------------------------- Program
+app.name = Local Transcriber
+
+# ---------------------------------------------------------------- Header and tabs
+kopf.profil = Profile:
+kopf.oberflaeche = Interface language:
+kopf.wird_geprueft = Checking setup …
+kopf.einrichtung_ok = Setup ✓
+kopf.einrichtung_fehler = Setup ✗ ({bereiche})
+kopf.pruefung = Check
+reiter.transkription = Transcription
+reiter.einstellungen = Settings
+reiter.info = About
+
+# ---------------------------------------------------------------- Transcription tab
+lauf.dateien = Choose files …
+lauf.dvd = DVD folder …
+lauf.leeren = Clear list
+lauf.modell = Model
+lauf.sprache = Recording language
+lauf.begriffsdatei = Term file (optional)
+lauf.oeffnen = open
+lauf.begriffe = Additional terms
+lauf.kontext = Context sentence (optional)
+lauf.zielordner = Output folder
+lauf.aendern = change …
+lauf.standard = Default
+lauf.ziel_profil = {pfad} (profile)
+lauf.ziel_neben = (next to the audio file)
+lauf.probe = sample only (first 2 min)
+lauf.woerter = word timestamps
+lauf.raster = Time grid in s
+lauf.tonspur = Audio track
+lauf.tonspuren = Show audio tracks
+lauf.start = Start
+lauf.abbrechen = Cancel
+lauf.befehl = Copy command
+lauf.ergebnisordner = Open output folder
+lauf.text_oeffnen = Open text
+lauf.protokoll_oeffnen = Open log
+lauf.begriffsdatei_fehlt = Term file not found
+lauf.keine_begriffe = no terms
+lauf.tokens = {n} terms, {tokens} of {grenze} tokens
+lauf.tokens_ca = {n} terms, approx. {tokens} of {grenze} tokens
+lauf.zu_lang = too long, the rest will be cut off
+lauf.platzhalter_datei = file
+
+# ---------------------------------------------------------------- Messages in the progress window
+log.profil_neu_start = New profile “{name}” created with default values ({ordner}). Please check under “Settings”.
+log.keine_sprachdateien = No language files found ({ordner}) – texts are shown as keys.
+log.befehl_kopiert = Command copied to the clipboard:
+log.start = Start:
+log.start_fehler = Could not start: {fehler}\nPlease check the Python path under “Settings”.
+log.abbruch = Cancellation requested …
+log.beendet = finished (code {code})
+log.profil_geladen = Profile “{name}” loaded.
+log.profil_gespeichert = Profile saved: {pfad}
+log.profil_neu = New profile “{name}” created with default values – please check the paths.
+log.profil_geloescht = Profile “{name}” deleted.
+log.profil_importiert = Profile “{name}” imported from {pfad}
+
+# ---------------------------------------------------------------- Dialogs
+dlg.typ_audio = Audio/video/DVD
+dlg.typ_alle = All files
+dlg.typ_text = Text file
+dlg.typ_profil = Profile
+dlg.oeffnen_fehler = Could not open:\n{pfad}\n\n{fehler}
+dlg.dateien_titel = Choose audio, video or DVD image
+dlg.dvd_titel = Choose DVD folder (with VIDEO_TS) or drive
+dlg.begriffsdatei_neu = No term file selected. Create a new file?
+dlg.begriffsdatei_kopf = Terms: one per line or comma-separated; # = comment
+dlg.erst_dateien = Please choose files first.
+dlg.ungespeichert_start = The settings have not been saved yet. The run uses the saved profile. Start anyway?
+dlg.aenderungen_speichern = Save changes to profile “{name}”?
+dlg.profilname = Profile name (e.g. computer name):
+dlg.profilname_neu = Name of the new profile:
+dlg.profil_ueberschreiben = Overwrite profile “{name}”?
+dlg.profil_gibt_es = Profile “{name}” already exists.
+dlg.letztes_profil = The last profile cannot be deleted.
+dlg.profil_loeschen = Delete profile “{name}”? The file will be removed.
+dlg.profil_unlesbar = Profile cannot be read:\n{fehler}
+dlg.import_name = Import under which name?
+dlg.modellordner = Choose model folder (contains model.bin)
+dlg.keine_modelbin = There is no model.bin in this folder – is this a faster-whisper model?
+dlg.kurzname = Short name for the command line (e.g. de):
+dlg.anzeigename = Display name:
+dlg.modell_entfernen = Remove model “{name}” from the profile?\n(The folder itself stays unchanged.)
+dlg.lauf_aktiv = A run is still active. Cancel it and close?
+dlg.sprache_neustart = The language will be used from the next start. Restart the window now?
+dlg.sprache_spaeter = The language will be used at the next start, after the current run.
+
+# ---------------------------------------------------------------- Settings tab
+einst.profil = Profile
+einst.neu = New …
+einst.speichern = Save
+einst.speichern_unter = Save as …
+einst.loeschen = Delete
+einst.importieren = Import …
+einst.profilordner = Open profile folder
+einst.beschreibung = Description
+einst.programme = Programs
+einst.python = Python of the transcription environment
+einst.python_exe = Not needed in the exe (faster-whisper is included).
+einst.python_hinweis = Environment with faster-whisper, e.g. C:\Python\venvs\faster-whisper\Scripts\python.exe
+einst.modelle = Models
+einst.spalte_std = Def.
+einst.spalte_kurz = Short name
+einst.spalte_name = Display name
+einst.spalte_ordner = Folder
+einst.modell_neu = Add …
+einst.modell_bearbeiten = Edit …
+einst.modell_entfernen = Remove
+einst.modell_standard = Set as default
+einst.standardwerte = Defaults for new runs
+einst.sprache = Recording language
+einst.threads = CPU cores (0 = all but one)
+einst.compute = Compute type
+einst.absatz = New paragraph after pause (s)
+einst.zielordner = Output folder (empty = next to the file)
+einst.begriffsdatei = Term file
+einst.kontext = Context sentence
+einst.platzhalter = Placeholders in paths: {Tools} = program folder, %USERPROFILE% etc.
+einst.pruefen = Check setup
+
+# ---------------------------------------------------------------- About tab
+info.version = Version {version}
+info.beschreibung = Offline transcription of audio, video and DVD with faster-whisper
+info.kontakt = Contact:
+info.lizenz = License: MIT (see LICENSE)
+info.quellcode = Source code and downloads:
+info.datenschutz = Privacy: Transcription runs entirely on this computer; no data is transmitted.
+info.issues = Questions and bugs:
+info.komp_weitere_name = further libraries
+info.komp_weitere = included in the exe, licenses see THIRD_PARTY_LICENSES.txt
+info.komponenten = Components used
+info.komp_ffmpeg = LGPL/GPL – not included, selected in the profile
+info.komp_modelle_name = Whisper models
+info.komp_modelle = license of the respective model – not included
+info.orte = Locations
+info.ort_profil = Active profile: {name} – {pfad}
+info.ort_lauf = Transcription runs with: {pfad}
+info.ort_exe = Exe {pfad} (faster-whisper included)
+info.ort_profilordner = Profile folder: {pfad}
+info.ort_zustand = State of this computer: {pfad}
+info.ort_programm = Program folder: {pfad}
+info.ort_sprache = Language file: {pfad}
+info.ort_anleitung = Manual: {pfad}
+info.anleitung = Open manual
+info.lizenz_oeffnen = Open license
+info.programmordner = Open program folder
+info.sprachordner = Open language folder
+
+# ---------------------------------------------------------------- Profile, models, setup check
+profil.modell_de = German (large-v3-turbo-german)
+profil.modell_large = Multilingual, large (large-v3)
+profil.modell_multi = Multilingual (large-v3-turbo)
+profil.nicht_gefunden = Profile not found: {name} (folder {ordner})
+modell.nicht_im_profil = Model “{modell}” is not listed in profile “{profil}” and is not a folder.
+pruef.programm = Program
+pruef.modelle = Models
+pruef.modell = Model {name}
+pruef.zielordner = Output folder
+pruef.begriffsdatei = Term file
+pruef.exe_ok = Exe with faster-whisper {fw}, CTranslate2 {ct2}
+pruef.exe_fw_fehlt = faster-whisper missing in the exe: {fehler}
+pruef.nicht_gefunden = not found: {pfad}
+pruef.python_ok = {pfad} – Python {py}, faster-whisper {fw}, CTranslate2 {ct2}
+pruef.python_fw_fehlt = {pfad}: faster-whisper cannot be imported ({fehler})
+pruef.ffmpeg_fehler = not working: {pfad}
+pruef.leer = (empty)
+pruef.kein_modell = no model listed
+pruef.ordner_fehlt = Folder missing: {pfad}
+pruef.laufwerk = (drive {laufwerk} not connected?)
+pruef.es_fehlt = {pfad}: missing {dateien}
+pruef.tokenizer_fehlt = {pfad}: tokenizer.json missing (copy it from faster-whisper-large-v3); token count is only estimated
+
+# ---------------------------------------------------------------- Command line: messages
+cli.profil = Profile “{name}”
+cli.profil_neu = (newly created)
+cli.keine_eingabe = No input file given (see --help).
+cli.ffmpeg_fehlt = ffmpeg not found – set it in the profile (Settings) or with --ffmpeg.
+cli.ton_fehler = ffmpeg could not read the audio
+cli.ton_fehler_dvd = (encrypted DVD? Only unprotected sources are possible)
+cli.iso_fehler = ISO could not be mounted: {fehler}\nAlternative: in Explorer right-click → “Mount”, then give the drive letter.
+cli.iso_eingebunden = ISO mounted as {laufwerk}
+cli.iso_ohne_dvd = No VIDEO_TS folder with VTS_xx_n.VOB found in the ISO.
+cli.ordner_ohne_dvd = Folder without DVD structure (VIDEO_TS\VTS_xx_n.VOB): {pfad}
+cli.dvd_titelsaetze = DVD title sets:
+cli.titelsatz = Title set {n}: {dateien}
+cli.titelsatz_fehlt = Title set {n} does not exist.
+cli.tonspur = Audio track {n}: {info}
+cli.keine_tonspur = no audio track found
+cli.audio_laden = Loading audio …
+cli.laeuft = Duration {dauer} – transcription running (progress by audio time) …
+cli.rest = approx. {rest} left
+cli.untertitel = Subtitles: {n} cues (max. {zeilen} × {zeichen} characters, {dauer} s)
+cli.untertitel_genaehert = times within segments approximated
+cli.raster = Grid:
+cli.fertig = finished in {zeit}
+cli.modell_fehlt = Model not found: {pfad}
+cli.begriffsdatei_fehler = Term file cannot be read: {fehler}
+cli.begriffe = Terms: {n} ({tokens} tokens, limit {grenze})
+cli.geschaetzt = (estimated)
+cli.begriffe_zu_lang = WARNING: The list is too long – faster-whisper only uses the first {grenze} tokens. Better use a shorter term file per topic.
+cli.modell_laden = Loading model {name} ({pfad}; {compute}, {threads} threads) …
+raster.aufruf = Usage: transkript_raster <name>.json <grid s> [<grid s> …]
+raster.genaehert = Note: no word timestamps in the transcript – the grid is approximated.
+
+# ---------------------------------------------------------------- Command line: help (--help)
+arg.beschreibung = local transcription (faster-whisper)
+arg.audio = audio, video or DVD inputs (file, .iso, VIDEO_TS folder)
+arg.profil = profile name or profile file (.json)
+arg.modell = short name, name or folder of the model (default: profile)
+arg.sprache = language of the recording: de, en, … or auto (default: profile)
+arg.begriffe = terms, comma-separated
+arg.begriffe_datei = text file with terms (default: profile)
+arg.kontext = sentence about the topic as a recognition hint (default: profile)
+arg.ausgabe = output folder (default: profile, otherwise next to the audio file)
+arg.test = only the first n seconds (sample run)
+arg.woerter = word timestamps (more precise subtitles, JSON with word times)
+arg.raster = time grid in seconds, e.g. 0.5 1 5 (turns on --woerter)
+arg.spur = audio track (0 = first); overview with --spuren
+arg.spuren = only list audio tracks, do not transcribe
+arg.titel = DVD title set (VTS_xx); default: largest
+arg.nur_datei = for VTS_xx_n.VOB only this file instead of the whole title
+arg.ffmpeg = path to ffmpeg.exe (default: profile)
+arg.threads = CPU cores (default: profile)
+arg.compute = compute type: int8, int8_float32, float32 (default: profile)
+arg.beam = beam size (default: profile, otherwise 5)
+arg.absatz = new paragraph in .txt after this speech pause in s (default: profile, otherwise 2)
+arg.kein_protokoll = do not write a log file
+arg.pruefen = only check the setup of the profile
+arg.ui = language of messages and log, e.g. de or en (default: as in the interface)
+arg.sprachen_pruefen = check language files for missing entries
+
+# ---------------------------------------------------------------- Log file
+prot.titel = Log
+prot.status_laeuft = running (stays like this if the run was cancelled)
+prot.status_fertig = finished
+prot.feld.status = Status
+prot.feld.programmversion = Program version
+prot.feld.start = Start
+prot.feld.ende = End
+prot.feld.rechenzeit = Processing time
+prot.feld.rechner = Computer
+prot.feld.python = Python
+prot.feld.faster_whisper = faster-whisper
+prot.feld.ffmpeg = ffmpeg
+prot.feld.profil = Profile
+prot.feld.modell = Model
+prot.feld.sprache = Language
+prot.feld.parameter = Parameters
+prot.feld.kontextsatz = Context sentence
+prot.feld.begriffsdatei = Term file
+prot.feld.fachbegriffe = Terms
+prot.feld.eingabe = Input
+prot.feld.gelesen_als = read as
+prot.feld.aufnahmedauer = Recording length
+prot.feld.segmente = Segments
+prot.feld.ausgabe = Output
+prot.feld.befehlszeile = Command line
+prot.rechenzeit_wert = {zeit} (factor {faktor} × recording length)
+prot.dateiinfo = {mb} MB, modified {datum}
+prot.begriffe = {n} terms, {tokens} tokens
+prot.ueber_grenze = OVER THE LIMIT of {grenze} tokens, the rest was cut off
+prot.vad = VAD on (pause ≥ 0.7 s)
+prot.wortzeitstempel = word timestamps={wert}
+prot.ja = yes
+prot.nein = no
+prot.raster = grid={werte} s
+prot.nur_erste = only first {s} s
+prot.tonspur = audio track {n}
+prot.absatz = paragraph after pause {s} s
+prot.untertitel = subtitles max. {zeilen} × {zeichen} characters / {dauer} s
+prot.genaehert = (times approximated)
+prot.erkannt = (detected: {sprache}, p = {p})

@@ -1,0 +1,33 @@
+{
+  "schema": 1,
+  "name": "Beispiel",
+  "beschreibung": "Vorlage: als <Rechnername>.json kopieren oder in der Oberfläche über Einstellungen → Importieren … übernehmen",
+  "python": "C:\\Python\\venvs\\faster-whisper\\Scripts\\python.exe",
+  "ffmpeg": "C:\\Tools\\ffmpeg\\bin\\ffmpeg.exe",
+  "modelle": [
+    {
+      "kurz": "de",
+      "name": "Deutsch (large-v3-turbo-german)",
+      "ordner": "C:\\LLMs\\whisper-large-v3-turbo-german-ct2"
+    },
+    {
+      "kurz": "multi",
+      "name": "Mehrsprachig (large-v3-turbo)",
+      "ordner": "C:\\LLMs\\faster-whisper-large-v3-turbo-ct2"
+    },
+    {
+      "kurz": "large",
+      "name": "Mehrsprachig, groß (large-v3)",
+      "ordner": "C:\\LLMs\\faster-whisper-large-v3"
+    }
+  ],
+  "standardmodell": "de",
+  "sprache": "de",
+  "threads": 0,
+  "compute": "int8",
+  "beam": 5,
+  "absatz": 2.0,
+  "zielordner": "",
+  "begriffsdatei": "",
+  "kontext": ""
+}
