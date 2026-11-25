@@ -1,6 +1,6 @@
 # language: English
 # code: en
-# version: 1.0.0
+# version: 1.1.0
 # manual: Manual_en.md
 #
 # Interface language file (English). Reference: de.txt.
@@ -98,6 +98,7 @@ dlg.anzeigename = Display name:
 dlg.modell_entfernen = Remove model “{name}” from the profile?\n(The folder itself stays unchanged.)
 dlg.lauf_aktiv = A run is still active. Cancel it and close?
 dlg.sprache_neustart = The language will be used from the next start. Restart the window now?
+dlg.sprachordner_fehlt = There is no folder for further languages:\n{ordner}\n\nGerman and English are built in. For further languages, create the folder and put language files (e.g. fr.txt) into it.
 dlg.sprache_spaeter = The language will be used at the next start, after the current run.
 
 # ---------------------------------------------------------------- Settings tab
@@ -155,6 +156,7 @@ info.ort_profilordner = Profile folder: {pfad}
 info.ort_zustand = State of this computer: {pfad}
 info.ort_programm = Program folder: {pfad}
 info.ort_sprache = Language file: {pfad}
+info.eingebaut = (built in)
 info.ort_anleitung = Manual: {pfad}
 info.anleitung = Open manual
 info.lizenz_oeffnen = Open license
@@ -162,6 +164,7 @@ info.programmordner = Open program folder
 info.sprachordner = Open language folder
 
 # ---------------------------------------------------------------- Profile, models, setup check
+profil.standardname = Default profile
 profil.modell_de = German (large-v3-turbo-german)
 profil.modell_large = Multilingual, large (large-v3)
 profil.modell_multi = Multilingual (large-v3-turbo)

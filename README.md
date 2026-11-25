@@ -3,7 +3,7 @@
 Offline-Transkription von Audio, Video und DVD mit [faster-whisper](https://github.com/SYSTRAN/faster-whisper).
 Alles läuft auf dem eigenen Rechner – keine Internetverbindung, keine Datei verlässt den Rechner.
 
-Version 1.0.0 · © 2026 Prof. Dr. Stefan M. Schulz · Lizenz: MIT (`LICENSE`) ·
+Version 1.1.0 · © 2026 Prof. Dr. Stefan M. Schulz · Lizenz: MIT (`LICENSE`) ·
 Fragen und Fehler: [GitHub Issues](https://github.com/SchulzSM/local-transcriber/issues) · Kontakt: kommunaut@gmail.com
 
 *English summary below.*
@@ -15,7 +15,7 @@ Fragen und Fehler: [GitHub Issues](https://github.com/SchulzSM/local-transcriber
 - Profile je Rechner (ffmpeg, Modelle, Standardwerte), Einrichtungsprüfung mit Klartextmeldungen
 - Fachbegriffe aus Textdateien mit Tokenanzeige
 - Protokolldatei je Lauf (Einstellungen, Versionen, Ein- und Ausgabedateien)
-- Oberfläche auf Deutsch und Englisch; weitere Sprachen als Textdatei in `sprachen\`
+- Oberfläche auf Deutsch, Englisch, Französisch, Spanisch und Chinesisch; weitere Sprachen als Textdatei in `sprachen\`
 
 ## Anleitungen
 
@@ -28,8 +28,9 @@ Fragen und Fehler: [GitHub Issues](https://github.com/SchulzSM/local-transcriber
 
 ## Schnellstart
 
-1. **Exe:** ZIP aus den [Releases](https://github.com/SchulzSM/local-transcriber/releases) an einen beschreibbaren
-   Ort entpacken (z. B. `C:\Tools\Transkribieren`).
+1. **Exe:** ZIP aus den [Releases](https://github.com/SchulzSM/local-transcriber/releases) vollständig an einen
+   beschreibbaren Ort entpacken (z. B. `C:\Tools\Transkribieren`). Die Exe braucht den Ordner `_internal` daneben;
+   für den Desktop eine Verknüpfung anlegen, nicht die Exe allein kopieren.
 2. **ffmpeg** besorgen ([ffmpeg.org](https://ffmpeg.org/download.html); gebraucht wird nur `ffmpeg.exe`).
 3. **Modell** herunterladen (Tabelle unten), je Modell einen Ordner, z. B. unter `C:\LLMs\`.
 4. `Transkribieren.exe` starten → **Einstellungen**: ffmpeg und Modellordner wählen → **Speichern** →
@@ -70,10 +71,10 @@ internet connection is needed and no file leaves your computer.
 - Graphical interface and command line; any audio/video format via ffmpeg; DVDs (ISO, VIDEO_TS, VOB).
 - Output: plain text, text with timestamps, subtitles (SRT), TSV, JSON, custom time grids, and a log file per run.
 - Profiles per computer, setup check, term lists to improve the spelling of technical vocabulary.
-- Interface in English and German; further languages can be added as text files in `sprachen\`.
+- Interface in English, German, French, Spanish and Chinese; further languages can be added as text files in `sprachen\`.
 
 **Getting started:** download the ZIP from the [releases](https://github.com/SchulzSM/local-transcriber/releases),
-extract it, get [ffmpeg](https://ffmpeg.org/download.html) and a model from the table above, start
+extract the whole folder (the exe needs `_internal`; use a shortcut for the desktop), get [ffmpeg](https://ffmpeg.org/download.html) and a model from the table above, start
 `Transkribieren.exe`, set ffmpeg and the model folder under *Settings*, save, *Check setup*, then choose files and
 *Start*. Full instructions: [docs/Manual_en.md](docs/Manual_en.md).
 

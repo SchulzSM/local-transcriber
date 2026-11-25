@@ -1,6 +1,6 @@
 # Transkribieren (lokal) – Anleitung für die Python-Fassung
 
-Version 1.0.0 · für Betrieb aus dem Quellcode, Entwicklung und Exe-Build ·
+Version 1.1.0 · für Betrieb aus dem Quellcode, Entwicklung und Exe-Build ·
 [github.com/SchulzSM/local-transcriber](https://github.com/SchulzSM/local-transcriber) ·
 Fragen und Fehler: [GitHub Issues](https://github.com/SchulzSM/local-transcriber/issues)
 
@@ -29,7 +29,7 @@ und Versionierung.
 | Profile | `<Repo>\profile\` | `<Exe-Ordner>\profile\` (eigene, getrennte Profile) |
 | `{Tools}` bedeutet | Repo-Ordner | Exe-Ordner |
 | Anleitung im Info-Reiter | Deutsch: diese Datei; andere Sprachen: `docs\Manual_<code>.md` | `Anleitung.md` bzw. `Manual_<code>.md` neben der Exe |
-| Sprachdateien | `<Repo>\sprachen\` | `<Exe-Ordner>\sprachen\` |
+| Sprachdateien | `<Repo>\sprachen\` | de/en eingebaut (`_internal\sprachen_eingebaut`), weitere in `<Exe-Ordner>\sprachen\` (optional) |
 
 Profile der beiden Fassungen sind getrennte Dateien. Zum Übertragen im jeweils anderen Programm
 **Einstellungen → Importieren …** verwenden.
@@ -75,7 +75,7 @@ Umgebung, in der faster-whisper installiert ist. **Einrichtung prüfen** startet
 von Python, faster-whisper und CTranslate2.
 
 Profile (`profile\*.json`) sind rechnerbezogen und werden **nicht** versioniert (`.gitignore`). Als Vorlage liegt
-`profile\Beispiel.json.example` bei; beim ersten Start legt das Programm ohnehin ein Profil mit dem Rechnernamen an.
+`profile\Beispiel.json.example` bei; beim ersten Start legt das Programm ohnehin ein „Standard-Profil“ an (Name aus der Sprachdatei, `profil.standardname`).
 
 ## 5. Exe bauen und weitergeben
 
@@ -88,6 +88,9 @@ powershell -ExecutionPolicy Bypass -File build_exe.ps1
     `LICENSE`, `THIRD_PARTY_LICENSES.txt`, `CHANGELOG.md`, `sprachen\`, `begriffe\` und `profile\` nur mit der
     Vorlage `Beispiel.json.example`. So bekommen Empfänger kein Profil vom Build-Rechner.
   - dazu `dist\Transkribieren_<Version>.zip`.
+- **Sprachen:** `de.txt` und `en.txt` gehen per `--add-data` fest in die Exe (`_internal\sprachen_eingebaut`); alle
+  Sprachdateien liegen zusätzlich in `dist\Transkribieren\sprachen\`. Gleiche Codes im Ordner überschreiben die
+  eingebauten.
 - **Lizenzen:** `werkzeuge\drittlizenzen.py` schreibt Version, Lizenzangabe und Lizenztext von Python und allen Paketen
   der Transkriptions-Umgebung in `THIRD_PARTY_LICENSES.txt` (Pflicht bei Weitergabe der Exe).
 - **Build-Umgebung:** `C:\Python\venvs\transkribieren-build` enthält nur PyInstaller. Die Pakete der
@@ -141,6 +144,11 @@ powershell -ExecutionPolicy Bypass -File build_exe.ps1
   - Ohne Wortzeitstempel werden die Zeiten anteilig nach Zeichenzahl verteilt.
 - **Oberfläche:**
   - Ergebnisse aus Hilfsthreads laufen über die Warteschlange, nie direkt über `after()`.
+  - Fenster: gespeicherte Position nur, wenn die Titelleiste auf einem Bildschirm liegt (`MonitorFromPoint`), sonst
+    `standard_fenster()` (mittig auf dem Hauptbildschirm); minimiert wird nichts gespeichert, maximiert als
+    `maximiert` im Zustand.
+  - Die Einrichtungsprüfung der Exe importiert faster-whisper nicht (Versionen per `importlib.metadata`), damit der
+    Start nicht PyTorch lädt.
   - Die Darstellung ist DPI-bewusst.
 
 ## 7. Versionierung mit Git

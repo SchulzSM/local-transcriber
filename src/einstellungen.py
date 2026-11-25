@@ -74,7 +74,7 @@ def kompakt(p):
 def standard_profil(name=None):
     return {
         "schema": SCHEMA,
-        "name": name or rechnername(),
+        "name": name or t("profil.standardname"),  # neutral, nicht der Rechnername
         "beschreibung": "",
         "python": r"C:\Python\venvs\faster-whisper\Scripts\python.exe",
         "ffmpeg": r"C:\Toolbox\ffmpeg\bin\ffmpeg.exe",
@@ -120,7 +120,7 @@ def lade_profil(name_oder_pfad):
 
 def speichere_profil(d, name=None):
     d = dict(d)
-    d["name"] = name or d.get("name") or rechnername()
+    d["name"] = name or d.get("name") or t("profil.standardname")
     d["schema"] = SCHEMA
     p = _dateiname(d["name"])
     os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -244,12 +244,22 @@ def pruefen(profil):
     id ist sprachneutral (programm, python, ffmpeg, modelle, modell:<kurz>, zielordner, begriffsdatei)."""
     erg = []
     if frozen():
-        try:
-            import faster_whisper, ctranslate2
+        # Nur nachsehen, nicht importieren: der Import lädt PyTorch und würde den Start der Oberfläche bremsen
+        import importlib.metadata as md, importlib.util as iu
+
+        def ver(*namen):
+            for n in namen:
+                try:
+                    return md.version(n)
+                except md.PackageNotFoundError:
+                    pass
+            return "?"
+        fehlt = [m for m in ("faster_whisper", "ctranslate2") if iu.find_spec(m) is None]
+        if fehlt:
+            erg.append(("programm", t("pruef.programm"), False, t("pruef.exe_fw_fehlt", fehler=", ".join(fehlt))))
+        else:
             erg.append(("programm", t("pruef.programm"), True,
-                        t("pruef.exe_ok", fw=faster_whisper.__version__, ct2=ctranslate2.__version__)))
-        except Exception as e:  # pragma: no cover
-            erg.append(("programm", t("pruef.programm"), False, t("pruef.exe_fw_fehlt", fehler=e)))
+                        t("pruef.exe_ok", fw=ver("mobius-faster-whisper", "faster-whisper"), ct2=ver("ctranslate2"))))
     else:
         py = expand(profil.get("python")) or sys.executable
         if not os.path.isfile(py):

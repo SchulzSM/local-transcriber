@@ -1,7 +1,7 @@
 """Oberfläche für transkribieren.py: Reiter Transkription, Einstellungen (Profile), Info.
 Start: Transkribieren.bat (Entwicklung) bzw. Transkribieren.exe.
 Alle sichtbaren Texte kommen aus den Sprachdateien (sprachen\\<code>.txt) über t("schlüssel")."""
-import os, queue, subprocess, sys, threading, webbrowser
+import os, queue, re, subprocess, sys, threading, webbrowser
 import tkinter as tk
 from tkinter import filedialog, messagebox, simpledialog, ttk
 
@@ -93,7 +93,9 @@ class App(tk.Tk):
         self.q = queue.Queue(); self.proc = None; self.neustart = False
         self.dateien, self.zielpfad, self.letztes_ergebnis = [], None, None
         self.zustand = E.lade_zustand()
-        self.geometry(self.zustand.get("fenster") or f"{int(980 * self.skala)}x{int(800 * self.skala)}")
+        self.fenster_setzen(self.zustand.get("fenster"))
+        if self.zustand.get("maximiert"):
+            self.state("zoomed")
         self.profil, neu = E.aktives_profil()
         self.geaendert = False
 
@@ -406,7 +408,7 @@ class App(tk.Tk):
         mo = ttk.LabelFrame(f, text=t("einst.modelle"), padding=8); mo.grid(row=3, column=0, sticky="nsew")
         f.rowconfigure(3, weight=1)
         self.baum = ttk.Treeview(mo, columns=("std", "kurz", "name", "ordner", "ok"), show="headings", height=5)
-        for c, k, w in (("std", "einst.spalte_std", 40), ("kurz", "einst.spalte_kurz", 70),
+        for c, k, w in (("std", "einst.spalte_std", 40), ("kurz", "einst.spalte_kurz", 105),
                         ("name", "einst.spalte_name", 220), ("ordner", "einst.spalte_ordner", 360), ("ok", "", 30)):
             self.baum.heading(c, text=t(k) if k else ""); self.baum.column(c, width=int(w * self.skala), stretch=(c == "ordner"))
         self.baum.pack(side="left", fill="both", expand=True)
@@ -708,7 +710,7 @@ class App(tk.Tk):
         ttk.Button(kn, text=t("info.anleitung"), command=lambda: oeffnen(self.anleitung())).pack(side="left")
         ttk.Button(kn, text=t("info.lizenz_oeffnen"), command=lambda: oeffnen(os.path.join(E.TOOLS, "LICENSE"))).pack(side="left", padx=4)
         ttk.Button(kn, text=t("info.programmordner"), command=lambda: oeffnen(E.TOOLS)).pack(side="left")
-        ttk.Button(kn, text=t("info.sprachordner"), command=lambda: oeffnen(S.ORDNER[0])).pack(side="left", padx=4)
+        ttk.Button(kn, text=t("info.sprachordner"), command=self.sprachordner_oeffnen).pack(side="left", padx=4)
 
     @staticmethod
     def anleitung():
@@ -741,10 +743,45 @@ class App(tk.Tk):
             t("info.ort_profilordner", pfad=E.profil_dir()),
             t("info.ort_zustand", pfad=E.zustand_pfad()),
             t("info.ort_programm", pfad=E.TOOLS),
-            t("info.ort_sprache", pfad=sp[2] if sp else "–"),
+            t("info.ort_sprache", pfad=(sp[2] + (" " + t("info.eingebaut") if sp[2].startswith(S.EINGEBAUT) else ""))
+              if sp else "–"),
             t("info.ort_anleitung", pfad=self.anleitung()),
         ]
         self.info_orte.config(text="\n".join(zeilen))
+
+    def sprachordner_oeffnen(self):
+        """Zusätzlicher Sprachordner ist optional: öffnen, wenn vorhanden, sonst nur Hinweis (nicht anlegen)."""
+        if os.path.isdir(S.ORDNER[0]):
+            oeffnen(S.ORDNER[0])
+        else:
+            messagebox.showinfo(titel(), t("dlg.sprachordner_fehlt", ordner=S.ORDNER[0]))
+
+    # ================================================================ Fenster
+    def standard_fenster(self):
+        """Feste Standardposition, die immer funktioniert: mittig auf dem Hauptbildschirm, an dessen Größe angepasst."""
+        sw, sh = self.winfo_screenwidth(), self.winfo_screenheight()
+        w, h = min(int(980 * self.skala), sw - 80), min(int(800 * self.skala), sh - 120)
+        return f"{w}x{h}+{(sw - w) // 2}+{max(0, (sh - h) // 3)}"
+
+    @staticmethod
+    def sichtbar(x, y, w):
+        """Liegt die Titelleiste (links und rechts) auf einem angeschlossenen Bildschirm?"""
+        try:
+            import ctypes
+            from ctypes import wintypes
+            u = ctypes.windll.user32
+            u.MonitorFromPoint.restype = wintypes.HANDLE
+            return all(u.MonitorFromPoint(wintypes.POINT(px, y + 10), 0) for px in (x + 60, x + max(w - 60, 60)))
+        except Exception:
+            return 0 <= x and 0 <= y
+
+    def fenster_setzen(self, geo):
+        m = re.fullmatch(r"(\d+)x(\d+)\+(-?\d+)\+(-?\d+)", geo or "")
+        if m:
+            w, h, x, y = map(int, m.groups())
+            if w >= 400 and h >= 300 and self.sichtbar(x, y, w):
+                self.geometry(geo); return
+        self.geometry(self.standard_fenster())
 
     # ================================================================ Sprache der Oberfläche
     def oberflaeche_wechseln(self, name):
@@ -791,7 +828,11 @@ class App(tk.Tk):
                                   "begriffsdatei": self.begriffsdatei.get(), "begriffe": self.begriffe.get(),
                                   "kontext": self.kontext.get(), "raster": self.raster.get(),
                                   "woerter": self.woerter.get(), "zielordner": self.zielpfad or ""}
-        self.zustand["fenster"] = self.geometry()
+        zustand = self.state()
+        if zustand == "normal":  # minimiert: nichts speichern (Windows meldet dann −32000/−32000)
+            self.zustand["fenster"] = self.geometry(); self.zustand["maximiert"] = False
+        elif zustand == "zoomed":
+            self.zustand["maximiert"] = True
         try:
             E.speichere_zustand(self.zustand)
         except OSError:

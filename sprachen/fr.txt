@@ -1,0 +1,289 @@
+# language: Français
+# code: fr
+# version: 1.1.0
+# manual: Manual_en.md
+#
+# Fichier de langue de l'interface (français). Référence : de.txt. Manuel : en anglais (Manual_en.md).
+# Format : clé = texte. Ne jamais modifier la clé, seulement le texte à droite.
+# {name} est un espace réservé et doit figurer dans la traduction ; {Tools} reste tel quel.
+# \n = saut de ligne. Vérifier : Transkribieren --cli --sprachen-pruefen
+
+# ---------------------------------------------------------------- Programme
+app.name = Transcripteur local
+
+# ---------------------------------------------------------------- En-tête et onglets
+kopf.profil = Profil :
+kopf.oberflaeche = Langue de l'interface :
+kopf.wird_geprueft = Vérification de la configuration …
+kopf.einrichtung_ok = Configuration ✓
+kopf.einrichtung_fehler = Configuration ✗ ({bereiche})
+kopf.pruefung = Vérification
+reiter.transkription = Transcription
+reiter.einstellungen = Paramètres
+reiter.info = À propos
+
+# ---------------------------------------------------------------- Onglet Transcription
+lauf.dateien = Choisir des fichiers …
+lauf.dvd = Dossier DVD …
+lauf.leeren = Vider la liste
+lauf.modell = Modèle
+lauf.sprache = Langue de l'enregistrement
+lauf.begriffsdatei = Fichier de termes (facultatif)
+lauf.oeffnen = ouvrir
+lauf.begriffe = Termes supplémentaires
+lauf.kontext = Phrase de contexte (facultatif)
+lauf.zielordner = Dossier de sortie
+lauf.aendern = modifier …
+lauf.standard = Par défaut
+lauf.ziel_profil = {pfad} (profil)
+lauf.ziel_neben = (à côté du fichier audio)
+lauf.probe = extrait seulement (2 premières min)
+lauf.woerter = horodatage par mot
+lauf.raster = Grille temporelle en s
+lauf.tonspur = Piste audio
+lauf.tonspuren = Afficher les pistes audio
+lauf.start = Démarrer
+lauf.abbrechen = Annuler
+lauf.befehl = Copier la commande
+lauf.ergebnisordner = Ouvrir le dossier de sortie
+lauf.text_oeffnen = Ouvrir le texte
+lauf.protokoll_oeffnen = Ouvrir le journal
+lauf.begriffsdatei_fehlt = Fichier de termes introuvable
+lauf.keine_begriffe = aucun terme
+lauf.tokens = {n} termes, {tokens} sur {grenze} tokens
+lauf.tokens_ca = {n} termes, env. {tokens} sur {grenze} tokens
+lauf.zu_lang = trop long, le reste sera tronqué
+lauf.platzhalter_datei = fichier
+
+# ---------------------------------------------------------------- Messages dans la fenêtre de progression
+log.profil_neu_start = Nouveau profil « {name} » créé avec les valeurs par défaut ({ordner}). Veuillez vérifier dans « Paramètres ».
+log.keine_sprachdateien = Aucun fichier de langue trouvé ({ordner}) – les textes s'affichent sous forme de clés.
+log.befehl_kopiert = Commande copiée dans le presse-papiers :
+log.start = Démarrage :
+log.start_fehler = Démarrage impossible : {fehler}\nVeuillez vérifier le chemin de Python dans « Paramètres ».
+log.abbruch = Annulation demandée …
+log.beendet = terminé (code {code})
+log.profil_geladen = Profil « {name} » chargé.
+log.profil_gespeichert = Profil enregistré : {pfad}
+log.profil_neu = Nouveau profil « {name} » créé avec les valeurs par défaut – veuillez vérifier les chemins.
+log.profil_geloescht = Profil « {name} » supprimé.
+log.profil_importiert = Profil « {name} » importé depuis {pfad}
+
+# ---------------------------------------------------------------- Dialogues
+dlg.typ_audio = Audio/vidéo/DVD
+dlg.typ_alle = Tous les fichiers
+dlg.typ_text = Fichier texte
+dlg.typ_profil = Profil
+dlg.oeffnen_fehler = Impossible d'ouvrir :\n{pfad}\n\n{fehler}
+dlg.dateien_titel = Choisir un fichier audio, vidéo ou une image DVD
+dlg.dvd_titel = Choisir un dossier DVD (avec VIDEO_TS) ou un lecteur
+dlg.begriffsdatei_neu = Aucun fichier de termes choisi. Créer un nouveau fichier ?
+dlg.begriffsdatei_kopf = Termes : un par ligne ou séparés par des virgules ; # = commentaire
+dlg.erst_dateien = Veuillez d'abord choisir des fichiers.
+dlg.ungespeichert_start = Les paramètres ne sont pas encore enregistrés. La transcription utilise le profil enregistré. Démarrer quand même ?
+dlg.aenderungen_speichern = Enregistrer les modifications du profil « {name} » ?
+dlg.profilname = Nom du profil (p. ex. nom de l'ordinateur) :
+dlg.profilname_neu = Nom du nouveau profil :
+dlg.profil_ueberschreiben = Remplacer le profil « {name} » ?
+dlg.profil_gibt_es = Le profil « {name} » existe déjà.
+dlg.letztes_profil = Le dernier profil ne peut pas être supprimé.
+dlg.profil_loeschen = Supprimer le profil « {name} » ? Le fichier sera effacé.
+dlg.profil_unlesbar = Profil illisible :\n{fehler}
+dlg.import_name = Importer sous quel nom ?
+dlg.modellordner = Choisir le dossier du modèle (contient model.bin)
+dlg.keine_modelbin = Ce dossier ne contient pas de model.bin – s'agit-il bien d'un modèle faster-whisper ?
+dlg.kurzname = Nom court pour la ligne de commande (p. ex. de) :
+dlg.anzeigename = Nom affiché :
+dlg.modell_entfernen = Retirer le modèle « {name} » du profil ?\n(Le dossier lui-même reste inchangé.)
+dlg.lauf_aktiv = Une transcription est en cours. L'annuler et fermer ?
+dlg.sprache_neustart = La langue sera utilisée au prochain démarrage. Redémarrer la fenêtre maintenant ?
+dlg.sprachordner_fehlt = Aucun dossier pour d'autres langues :\n{ordner}\n\nL'allemand et l'anglais sont intégrés. Pour d'autres langues, créez le dossier et placez-y les fichiers de langue (p. ex. fr.txt).
+dlg.sprache_spaeter = La langue sera utilisée au prochain démarrage, après la transcription en cours.
+
+# ---------------------------------------------------------------- Onglet Paramètres
+einst.profil = Profil
+einst.neu = Nouveau …
+einst.speichern = Enregistrer
+einst.speichern_unter = Enregistrer sous …
+einst.loeschen = Supprimer
+einst.importieren = Importer …
+einst.profilordner = Ouvrir le dossier des profils
+einst.beschreibung = Description
+einst.programme = Programmes
+einst.python = Python de l'environnement de transcription
+einst.python_exe = Inutile dans l'exe (faster-whisper est inclus).
+einst.python_hinweis = Environnement avec faster-whisper, p. ex. C:\Python\venvs\faster-whisper\Scripts\python.exe
+einst.modelle = Modèles
+einst.spalte_std = Déf.
+einst.spalte_kurz = Nom court
+einst.spalte_name = Nom affiché
+einst.spalte_ordner = Dossier
+einst.modell_neu = Ajouter …
+einst.modell_bearbeiten = Modifier …
+einst.modell_entfernen = Retirer
+einst.modell_standard = Définir par défaut
+einst.standardwerte = Valeurs par défaut des nouvelles transcriptions
+einst.sprache = Langue de l'enregistrement
+einst.threads = Cœurs (0 = tous sauf un)
+einst.compute = Type de calcul
+einst.absatz = Nouveau paragraphe après une pause (s)
+einst.zielordner = Dossier de sortie (vide = à côté du fichier)
+einst.begriffsdatei = Fichier de termes
+einst.kontext = Phrase de contexte
+einst.platzhalter = Espaces réservés dans les chemins : {Tools} = dossier du programme, %USERPROFILE%, etc.
+einst.pruefen = Vérifier la configuration
+
+# ---------------------------------------------------------------- Onglet À propos
+info.version = Version {version}
+info.beschreibung = Transcription hors ligne d'audio, de vidéo et de DVD avec faster-whisper
+info.kontakt = Contact :
+info.lizenz = Licence : MIT (voir LICENSE)
+info.quellcode = Code source et téléchargements :
+info.datenschutz = Confidentialité : la transcription s'effectue entièrement sur cet ordinateur ; aucune donnée n'est transmise.
+info.issues = Questions et bogues :
+info.komp_weitere_name = autres bibliothèques
+info.komp_weitere = incluses dans l'exe, licences voir THIRD_PARTY_LICENSES.txt
+info.komponenten = Composants utilisés
+info.komp_ffmpeg = LGPL/GPL – non inclus, choisi dans le profil
+info.komp_modelle_name = Modèles Whisper
+info.komp_modelle = licence du modèle concerné – non inclus
+info.orte = Emplacements
+info.ort_profil = Profil actif : {name} – {pfad}
+info.ort_lauf = La transcription s'exécute avec : {pfad}
+info.ort_exe = Exe {pfad} (faster-whisper inclus)
+info.ort_profilordner = Dossier des profils : {pfad}
+info.ort_zustand = État de cet ordinateur : {pfad}
+info.ort_programm = Dossier du programme : {pfad}
+info.ort_sprache = Fichier de langue : {pfad}
+info.eingebaut = (intégré)
+info.ort_anleitung = Manuel : {pfad}
+info.anleitung = Ouvrir le manuel
+info.lizenz_oeffnen = Ouvrir la licence
+info.programmordner = Ouvrir le dossier du programme
+info.sprachordner = Ouvrir le dossier des langues
+
+# ---------------------------------------------------------------- Profil, modèles, vérification
+profil.standardname = Profil par défaut
+profil.modell_de = Allemand (large-v3-turbo-german)
+profil.modell_large = Multilingue, grand (large-v3)
+profil.modell_multi = Multilingue (large-v3-turbo)
+profil.nicht_gefunden = Profil introuvable : {name} (dossier {ordner})
+modell.nicht_im_profil = Le modèle « {modell} » ne figure pas dans le profil « {profil} » et n'est pas un dossier.
+pruef.programm = Programme
+pruef.modelle = Modèles
+pruef.modell = Modèle {name}
+pruef.zielordner = Dossier de sortie
+pruef.begriffsdatei = Fichier de termes
+pruef.exe_ok = Exe avec faster-whisper {fw}, CTranslate2 {ct2}
+pruef.exe_fw_fehlt = faster-whisper manque dans l'exe : {fehler}
+pruef.nicht_gefunden = introuvable : {pfad}
+pruef.python_ok = {pfad} – Python {py}, faster-whisper {fw}, CTranslate2 {ct2}
+pruef.python_fw_fehlt = {pfad} : impossible d'importer faster-whisper ({fehler})
+pruef.ffmpeg_fehler = ne fonctionne pas : {pfad}
+pruef.leer = (vide)
+pruef.kein_modell = aucun modèle indiqué
+pruef.ordner_fehlt = Dossier manquant : {pfad}
+pruef.laufwerk = (lecteur {laufwerk} non connecté ?)
+pruef.es_fehlt = {pfad} : il manque {dateien}
+pruef.tokenizer_fehlt = {pfad} : tokenizer.json manque (le copier depuis faster-whisper-large-v3) ; nombre de tokens seulement estimé
+
+# ---------------------------------------------------------------- Ligne de commande : messages
+cli.profil = Profil « {name} »
+cli.profil_neu = (nouvellement créé)
+cli.keine_eingabe = Aucun fichier d'entrée indiqué (voir --help).
+cli.ffmpeg_fehlt = ffmpeg introuvable – l'indiquer dans le profil (Paramètres) ou avec --ffmpeg.
+cli.ton_fehler = ffmpeg n'a pas pu lire le son
+cli.ton_fehler_dvd = (DVD chiffré ? Seules les sources non protégées sont possibles)
+cli.iso_fehler = Impossible de monter l'ISO : {fehler}\nAlternative : dans l'Explorateur, clic droit → « Monter », puis indiquer la lettre du lecteur.
+cli.iso_eingebunden = ISO monté en {laufwerk}
+cli.iso_ohne_dvd = Aucun dossier VIDEO_TS avec VTS_xx_n.VOB trouvé dans l'ISO.
+cli.ordner_ohne_dvd = Dossier sans structure DVD (VIDEO_TS\VTS_xx_n.VOB) : {pfad}
+cli.dvd_titelsaetze = Titres du DVD :
+cli.titelsatz = Titre {n} : {dateien}
+cli.titelsatz_fehlt = Le titre {n} n'existe pas.
+cli.tonspur = Piste audio {n} : {info}
+cli.keine_tonspur = aucune piste audio trouvée
+cli.audio_laden = Chargement de l'audio …
+cli.laeuft = Durée {dauer} – transcription en cours (progression selon le temps audio) …
+cli.rest = encore env. {rest}
+cli.untertitel = Sous-titres : {n} affichages (max. {zeilen} × {zeichen} caractères, {dauer} s)
+cli.untertitel_genaehert = temps approximés à l'intérieur des segments
+cli.raster = Grille :
+cli.fertig = terminé en {zeit}
+cli.modell_fehlt = Modèle introuvable : {pfad}
+cli.begriffsdatei_fehler = Fichier de termes illisible : {fehler}
+cli.begriffe = Termes : {n} ({tokens} tokens, limite {grenze})
+cli.geschaetzt = (estimé)
+cli.begriffe_zu_lang = ATTENTION : la liste est trop longue – faster-whisper n'utilise que les {grenze} premiers tokens. Mieux vaut un fichier de termes plus court par thème.
+cli.modell_laden = Chargement du modèle {name} ({pfad} ; {compute}, {threads} threads) …
+raster.aufruf = Usage : transkript_raster <nom>.json <grille s> [<grille s> …]
+raster.genaehert = Remarque : pas d'horodatage par mot dans la transcription – la grille est approximée.
+
+# ---------------------------------------------------------------- Ligne de commande : aide (--help)
+arg.beschreibung = transcription locale (faster-whisper)
+arg.audio = entrées audio, vidéo ou DVD (fichier, .iso, dossier VIDEO_TS)
+arg.profil = nom ou fichier de profil (.json)
+arg.modell = nom court, nom ou dossier du modèle (par défaut : profil)
+arg.sprache = langue de l'enregistrement : de, en, … ou auto (par défaut : profil)
+arg.begriffe = termes, séparés par des virgules
+arg.begriffe_datei = fichier texte de termes (par défaut : profil)
+arg.kontext = phrase sur le thème comme indice de reconnaissance (par défaut : profil)
+arg.ausgabe = dossier de sortie (par défaut : profil, sinon à côté du fichier audio)
+arg.test = seulement les n premières secondes (essai)
+arg.woerter = horodatage par mot (sous-titres plus précis, JSON avec temps des mots)
+arg.raster = grille temporelle en secondes, p. ex. 0.5 1 5 (active --woerter)
+arg.spur = piste audio (0 = première) ; liste avec --spuren
+arg.spuren = afficher seulement les pistes audio, sans transcrire
+arg.titel = titre du DVD (VTS_xx) ; par défaut : le plus grand
+arg.nur_datei = pour VTS_xx_n.VOB, seulement ce fichier au lieu du titre entier
+arg.ffmpeg = chemin de ffmpeg.exe (par défaut : profil)
+arg.threads = cœurs (par défaut : profil)
+arg.compute = type de calcul : int8, int8_float32, float32 (par défaut : profil)
+arg.beam = largeur de recherche (par défaut : profil, sinon 5)
+arg.absatz = nouveau paragraphe dans le .txt après cette pause en s (par défaut : profil, sinon 2)
+arg.kein_protokoll = ne pas écrire de journal
+arg.pruefen = vérifier seulement la configuration du profil
+arg.ui = langue des messages et du journal, p. ex. fr ou en (par défaut : comme dans l'interface)
+arg.sprachen_pruefen = vérifier les entrées manquantes des fichiers de langue
+
+# ---------------------------------------------------------------- Fichier journal
+prot.titel = Journal
+prot.status_laeuft = en cours (reste ainsi si la transcription a été annulée)
+prot.status_fertig = terminé
+prot.feld.status = Statut
+prot.feld.programmversion = Version du programme
+prot.feld.start = Début
+prot.feld.ende = Fin
+prot.feld.rechenzeit = Temps de calcul
+prot.feld.rechner = Ordinateur
+prot.feld.python = Python
+prot.feld.faster_whisper = faster-whisper
+prot.feld.ffmpeg = ffmpeg
+prot.feld.profil = Profil
+prot.feld.modell = Modèle
+prot.feld.sprache = Langue
+prot.feld.parameter = Paramètres
+prot.feld.kontextsatz = Phrase de contexte
+prot.feld.begriffsdatei = Fichier de termes
+prot.feld.fachbegriffe = Termes
+prot.feld.eingabe = Entrée
+prot.feld.gelesen_als = lu comme
+prot.feld.aufnahmedauer = Durée de l'enregistrement
+prot.feld.segmente = Segments
+prot.feld.ausgabe = Sortie
+prot.feld.befehlszeile = Ligne de commande
+prot.rechenzeit_wert = {zeit} (facteur {faktor} × durée de l'enregistrement)
+prot.dateiinfo = {mb} Mo, modifié le {datum}
+prot.begriffe = {n} termes, {tokens} tokens
+prot.ueber_grenze = AU-DELÀ DE LA LIMITE de {grenze} tokens, le reste a été tronqué
+prot.vad = VAD activé (pause ≥ 0,7 s)
+prot.wortzeitstempel = horodatage par mot={wert}
+prot.ja = oui
+prot.nein = non
+prot.raster = grille={werte} s
+prot.nur_erste = seulement les {s} premières s
+prot.tonspur = piste audio {n}
+prot.absatz = paragraphe après une pause de {s} s
+prot.untertitel = sous-titres max. {zeilen} × {zeichen} caractères / {dauer} s
+prot.genaehert = (temps approximés)
+prot.erkannt = (détectée : {sprache}, p = {p})

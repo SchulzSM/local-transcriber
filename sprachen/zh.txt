@@ -1,0 +1,289 @@
+# language: 中文（简体）
+# code: zh
+# version: 1.1.0
+# manual: Manual_en.md
+#
+# 界面语言文件（简体中文）。参照：de.txt。手册：英文（Manual_en.md）。
+# 格式：键 = 文本。不要修改键，只修改右侧的文本。
+# {name} 是占位符，译文中必须保留；{Tools} 保持原样。
+# \n = 换行。检查：Transkribieren --cli --sprachen-pruefen
+
+# ---------------------------------------------------------------- 程序
+app.name = 本地转录器
+
+# ---------------------------------------------------------------- 顶栏和选项卡
+kopf.profil = 配置文件：
+kopf.oberflaeche = 界面语言：
+kopf.wird_geprueft = 正在检查设置 …
+kopf.einrichtung_ok = 设置 ✓
+kopf.einrichtung_fehler = 设置 ✗（{bereiche}）
+kopf.pruefung = 检查
+reiter.transkription = 转录
+reiter.einstellungen = 设置
+reiter.info = 关于
+
+# ---------------------------------------------------------------- “转录”选项卡
+lauf.dateien = 选择文件 …
+lauf.dvd = DVD 文件夹 …
+lauf.leeren = 清空列表
+lauf.modell = 模型
+lauf.sprache = 录音语言
+lauf.begriffsdatei = 术语文件（可选）
+lauf.oeffnen = 打开
+lauf.begriffe = 附加术语
+lauf.kontext = 上下文句子（可选）
+lauf.zielordner = 输出文件夹
+lauf.aendern = 更改 …
+lauf.standard = 默认
+lauf.ziel_profil = {pfad}（配置文件）
+lauf.ziel_neben = （音频文件所在位置）
+lauf.probe = 仅试听（前 2 分钟）
+lauf.woerter = 逐词时间戳
+lauf.raster = 时间网格（秒）
+lauf.tonspur = 音轨
+lauf.tonspuren = 显示音轨
+lauf.start = 开始
+lauf.abbrechen = 取消
+lauf.befehl = 复制命令
+lauf.ergebnisordner = 打开输出文件夹
+lauf.text_oeffnen = 打开文本
+lauf.protokoll_oeffnen = 打开日志
+lauf.begriffsdatei_fehlt = 未找到术语文件
+lauf.keine_begriffe = 无术语
+lauf.tokens = {n} 个术语，{tokens} / {grenze} 个词元
+lauf.tokens_ca = {n} 个术语，约 {tokens} / {grenze} 个词元
+lauf.zu_lang = 过长，超出部分将被截断
+lauf.platzhalter_datei = 文件
+
+# ---------------------------------------------------------------- 进度窗口中的消息
+log.profil_neu_start = 已使用默认值创建新配置文件“{name}”（{ordner}）。请在“设置”中检查。
+log.keine_sprachdateien = 未找到语言文件（{ordner}），文本将以键名显示。
+log.befehl_kopiert = 命令已复制到剪贴板：
+log.start = 开始：
+log.start_fehler = 无法启动：{fehler}\n请在“设置”中检查 Python 路径。
+log.abbruch = 已请求取消 …
+log.beendet = 已结束（代码 {code}）
+log.profil_geladen = 已加载配置文件“{name}”。
+log.profil_gespeichert = 配置文件已保存：{pfad}
+log.profil_neu = 已使用默认值创建新配置文件“{name}”，请检查路径。
+log.profil_geloescht = 已删除配置文件“{name}”。
+log.profil_importiert = 已从 {pfad} 导入配置文件“{name}”
+
+# ---------------------------------------------------------------- 对话框
+dlg.typ_audio = 音频/视频/DVD
+dlg.typ_alle = 所有文件
+dlg.typ_text = 文本文件
+dlg.typ_profil = 配置文件
+dlg.oeffnen_fehler = 无法打开：\n{pfad}\n\n{fehler}
+dlg.dateien_titel = 选择音频、视频或 DVD 映像
+dlg.dvd_titel = 选择 DVD 文件夹（含 VIDEO_TS）或驱动器
+dlg.begriffsdatei_neu = 尚未选择术语文件。是否新建文件？
+dlg.begriffsdatei_kopf = 术语：每行一个或用逗号分隔；# = 注释
+dlg.erst_dateien = 请先选择文件。
+dlg.ungespeichert_start = 设置尚未保存。转录将使用已保存的配置文件。仍然开始吗？
+dlg.aenderungen_speichern = 保存对配置文件“{name}”的更改吗？
+dlg.profilname = 配置文件名称（例如计算机名）：
+dlg.profilname_neu = 新配置文件的名称：
+dlg.profil_ueberschreiben = 覆盖配置文件“{name}”吗？
+dlg.profil_gibt_es = 配置文件“{name}”已存在。
+dlg.letztes_profil = 不能删除最后一个配置文件。
+dlg.profil_loeschen = 删除配置文件“{name}”吗？该文件将被删除。
+dlg.profil_unlesbar = 无法读取配置文件：\n{fehler}
+dlg.import_name = 以什么名称导入？
+dlg.modellordner = 选择模型文件夹（包含 model.bin）
+dlg.keine_modelbin = 此文件夹中没有 model.bin，这是 faster-whisper 模型吗？
+dlg.kurzname = 命令行使用的简称（例如 de）：
+dlg.anzeigename = 显示名称：
+dlg.modell_entfernen = 从配置文件中移除模型“{name}”吗？\n（文件夹本身不会改变。）
+dlg.lauf_aktiv = 仍有转录在进行。取消并关闭吗？
+dlg.sprache_neustart = 该语言将在下次启动时生效。现在重新启动窗口吗？
+dlg.sprachordner_fehlt = 没有用于其他语言的文件夹：\n{ordner}\n\n德语和英语已内置。如需其他语言，请创建该文件夹并放入语言文件（例如 fr.txt）。
+dlg.sprache_spaeter = 当前转录结束后，该语言将在下次启动时生效。
+
+# ---------------------------------------------------------------- “设置”选项卡
+einst.profil = 配置文件
+einst.neu = 新建 …
+einst.speichern = 保存
+einst.speichern_unter = 另存为 …
+einst.loeschen = 删除
+einst.importieren = 导入 …
+einst.profilordner = 打开配置文件夹
+einst.beschreibung = 说明
+einst.programme = 程序
+einst.python = 转录环境的 Python
+einst.python_exe = exe 中不需要（已包含 faster-whisper）。
+einst.python_hinweis = 含 faster-whisper 的环境，例如 C:\Python\venvs\faster-whisper\Scripts\python.exe
+einst.modelle = 模型
+einst.spalte_std = 默认
+einst.spalte_kurz = 简称
+einst.spalte_name = 显示名称
+einst.spalte_ordner = 文件夹
+einst.modell_neu = 添加 …
+einst.modell_bearbeiten = 编辑 …
+einst.modell_entfernen = 移除
+einst.modell_standard = 设为默认
+einst.standardwerte = 新转录的默认值
+einst.sprache = 录音语言
+einst.threads = CPU 核心数（0 = 保留一个，其余全部使用）
+einst.compute = 计算类型
+einst.absatz = 停顿多久后分段（秒）
+einst.zielordner = 输出文件夹（留空 = 源文件所在位置）
+einst.begriffsdatei = 术语文件
+einst.kontext = 上下文句子
+einst.platzhalter = 路径占位符：{Tools} = 程序文件夹、%USERPROFILE% 等
+einst.pruefen = 检查设置
+
+# ---------------------------------------------------------------- “关于”选项卡
+info.version = 版本 {version}
+info.beschreibung = 使用 faster-whisper 离线转录音频、视频和 DVD
+info.kontakt = 联系方式：
+info.lizenz = 许可证：MIT（见 LICENSE）
+info.quellcode = 源代码和下载：
+info.datenschutz = 隐私：转录完全在本计算机上进行，不会传输任何数据。
+info.issues = 问题与错误报告：
+info.komp_weitere_name = 其他库
+info.komp_weitere = 已包含在 exe 中，许可证见 THIRD_PARTY_LICENSES.txt
+info.komponenten = 使用的组件
+info.komp_ffmpeg = LGPL/GPL – 未包含，在配置文件中指定
+info.komp_modelle_name = Whisper 模型
+info.komp_modelle = 遵循各模型自身的许可证 – 未包含
+info.orte = 位置
+info.ort_profil = 当前配置文件：{name} – {pfad}
+info.ort_lauf = 转录运行环境：{pfad}
+info.ort_exe = Exe {pfad}（已包含 faster-whisper）
+info.ort_profilordner = 配置文件夹：{pfad}
+info.ort_zustand = 本计算机的状态：{pfad}
+info.ort_programm = 程序文件夹：{pfad}
+info.ort_sprache = 语言文件：{pfad}
+info.eingebaut = （内置）
+info.ort_anleitung = 手册：{pfad}
+info.anleitung = 打开手册
+info.lizenz_oeffnen = 打开许可证
+info.programmordner = 打开程序文件夹
+info.sprachordner = 打开语言文件夹
+
+# ---------------------------------------------------------------- 配置文件、模型、设置检查
+profil.standardname = 默认配置
+profil.modell_de = 德语（large-v3-turbo-german）
+profil.modell_large = 多语言，大型（large-v3）
+profil.modell_multi = 多语言（large-v3-turbo）
+profil.nicht_gefunden = 未找到配置文件：{name}（文件夹 {ordner}）
+modell.nicht_im_profil = 模型“{modell}”未列在配置文件“{profil}”中，也不是文件夹。
+pruef.programm = 程序
+pruef.modelle = 模型
+pruef.modell = 模型 {name}
+pruef.zielordner = 输出文件夹
+pruef.begriffsdatei = 术语文件
+pruef.exe_ok = Exe，含 faster-whisper {fw}、CTranslate2 {ct2}
+pruef.exe_fw_fehlt = exe 中缺少 faster-whisper：{fehler}
+pruef.nicht_gefunden = 未找到：{pfad}
+pruef.python_ok = {pfad} – Python {py}，faster-whisper {fw}，CTranslate2 {ct2}
+pruef.python_fw_fehlt = {pfad}：无法导入 faster-whisper（{fehler}）
+pruef.ffmpeg_fehler = 无法运行：{pfad}
+pruef.leer = （空）
+pruef.kein_modell = 未指定模型
+pruef.ordner_fehlt = 缺少文件夹：{pfad}
+pruef.laufwerk = （驱动器 {laufwerk} 未连接？）
+pruef.es_fehlt = {pfad}：缺少 {dateien}
+pruef.tokenizer_fehlt = {pfad}：缺少 tokenizer.json（可从 faster-whisper-large-v3 复制）；词元数仅为估算
+
+# ---------------------------------------------------------------- 命令行：消息
+cli.profil = 配置文件“{name}”
+cli.profil_neu = （新建）
+cli.keine_eingabe = 未指定输入文件（见 --help）。
+cli.ffmpeg_fehlt = 未找到 ffmpeg，请在配置文件（设置）中或用 --ffmpeg 指定。
+cli.ton_fehler = ffmpeg 无法读取音频
+cli.ton_fehler_dvd = （加密的 DVD？仅支持未加保护的来源）
+cli.iso_fehler = 无法装载 ISO：{fehler}\n替代方法：在资源管理器中右键 →“装载”，然后指定驱动器号。
+cli.iso_eingebunden = ISO 已装载为 {laufwerk}
+cli.iso_ohne_dvd = 在 ISO 中未找到含 VTS_xx_n.VOB 的 VIDEO_TS 文件夹。
+cli.ordner_ohne_dvd = 文件夹不具备 DVD 结构（VIDEO_TS\VTS_xx_n.VOB）：{pfad}
+cli.dvd_titelsaetze = DVD 标题集：
+cli.titelsatz = 标题集 {n}：{dateien}
+cli.titelsatz_fehlt = 标题集 {n} 不存在。
+cli.tonspur = 音轨 {n}：{info}
+cli.keine_tonspur = 未找到音轨
+cli.audio_laden = 正在加载音频 …
+cli.laeuft = 时长 {dauer} – 正在转录（按音频时间显示进度）…
+cli.rest = 约剩 {rest}
+cli.untertitel = 字幕：{n} 条（最多 {zeilen} × {zeichen} 个字符，{dauer} 秒）
+cli.untertitel_genaehert = 片段内的时间为近似值
+cli.raster = 网格：
+cli.fertig = 完成，用时 {zeit}
+cli.modell_fehlt = 未找到模型：{pfad}
+cli.begriffsdatei_fehler = 无法读取术语文件：{fehler}
+cli.begriffe = 术语：{n} 个（{tokens} 个词元，上限 {grenze}）
+cli.geschaetzt = （估算）
+cli.begriffe_zu_lang = 注意：列表过长，faster-whisper 只使用前 {grenze} 个词元。建议每个主题使用较短的术语文件。
+cli.modell_laden = 正在加载模型 {name}（{pfad}；{compute}，{threads} 个线程）…
+raster.aufruf = 用法：transkript_raster <名称>.json <网格 秒> [<网格 秒> …]
+raster.genaehert = 提示：转录中没有逐词时间戳，网格为近似值。
+
+# ---------------------------------------------------------------- 命令行：帮助（--help）
+arg.beschreibung = 本地转录（faster-whisper）
+arg.audio = 音频、视频或 DVD 输入（文件、.iso、VIDEO_TS 文件夹）
+arg.profil = 配置文件名称或配置文件（.json）
+arg.modell = 模型的简称、名称或文件夹（默认：配置文件）
+arg.sprache = 录音语言：de、en、… 或 auto（默认：配置文件）
+arg.begriffe = 术语，用逗号分隔
+arg.begriffe_datei = 术语文本文件（默认：配置文件）
+arg.kontext = 关于主题的句子，作为识别提示（默认：配置文件）
+arg.ausgabe = 输出文件夹（默认：配置文件，否则为音频文件所在位置）
+arg.test = 仅转录前 n 秒（试运行）
+arg.woerter = 逐词时间戳（字幕更精确，JSON 含逐词时间）
+arg.raster = 时间网格（秒），例如 0.5 1 5（会启用 --woerter）
+arg.spur = 音轨（0 = 第一条）；用 --spuren 查看列表
+arg.spuren = 仅显示音轨，不转录
+arg.titel = DVD 标题集（VTS_xx）；默认：最大的
+arg.nur_datei = 对于 VTS_xx_n.VOB，仅处理该文件而非整个标题
+arg.ffmpeg = ffmpeg.exe 的路径（默认：配置文件）
+arg.threads = CPU 核心数（默认：配置文件）
+arg.compute = 计算类型：int8、int8_float32、float32（默认：配置文件）
+arg.beam = 搜索宽度（默认：配置文件，否则为 5）
+arg.absatz = 停顿超过此秒数时在 .txt 中分段（默认：配置文件，否则为 2）
+arg.kein_protokoll = 不写日志文件
+arg.pruefen = 仅检查配置文件的设置
+arg.ui = 消息和日志的语言，例如 zh 或 en（默认：与界面相同）
+arg.sprachen_pruefen = 检查语言文件是否缺少条目
+
+# ---------------------------------------------------------------- 日志文件
+prot.titel = 日志
+prot.status_laeuft = 进行中（若转录被取消则保持此状态）
+prot.status_fertig = 已完成
+prot.feld.status = 状态
+prot.feld.programmversion = 程序版本
+prot.feld.start = 开始
+prot.feld.ende = 结束
+prot.feld.rechenzeit = 计算时间
+prot.feld.rechner = 计算机
+prot.feld.python = Python
+prot.feld.faster_whisper = faster-whisper
+prot.feld.ffmpeg = ffmpeg
+prot.feld.profil = 配置文件
+prot.feld.modell = 模型
+prot.feld.sprache = 语言
+prot.feld.parameter = 参数
+prot.feld.kontextsatz = 上下文句子
+prot.feld.begriffsdatei = 术语文件
+prot.feld.fachbegriffe = 术语
+prot.feld.eingabe = 输入
+prot.feld.gelesen_als = 读取为
+prot.feld.aufnahmedauer = 录音时长
+prot.feld.segmente = 片段
+prot.feld.ausgabe = 输出
+prot.feld.befehlszeile = 命令行
+prot.rechenzeit_wert = {zeit}（录音时长的 {faktor} 倍）
+prot.dateiinfo = {mb} MB，修改于 {datum}
+prot.begriffe = {n} 个术语，{tokens} 个词元
+prot.ueber_grenze = 超出 {grenze} 个词元的上限，其余部分已被截断
+prot.vad = 已启用 VAD（停顿 ≥ 0.7 秒）
+prot.wortzeitstempel = 逐词时间戳={wert}
+prot.ja = 是
+prot.nein = 否
+prot.raster = 网格={werte} 秒
+prot.nur_erste = 仅前 {s} 秒
+prot.tonspur = 音轨 {n}
+prot.absatz = 停顿 {s} 秒后分段
+prot.untertitel = 字幕最多 {zeilen} × {zeichen} 个字符 / {dauer} 秒
+prot.genaehert = （时间为近似值）
+prot.erkannt = （检测到：{sprache}，p = {p}）

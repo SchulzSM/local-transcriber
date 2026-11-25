@@ -33,6 +33,8 @@ Write-Host "Baue Transkribieren $version ..."
     --hidden-import ctranslate2 --hidden-import tokenizers --hidden-import onnxruntime `
     --collect-data pyannote.audio --collect-data pyannote.core --collect-data pyannote.pipeline `
     --copy-metadata pyannote.audio --copy-metadata torch `
+    --copy-metadata mobius-faster-whisper --copy-metadata ctranslate2 `
+    --add-data "sprachen\de.txt;sprachen_eingebaut" --add-data "sprachen\en.txt;sprachen_eingebaut" `
     --exclude-module tensorflow --exclude-module IPython `
     src\app.py
 if ($LASTEXITCODE -ne 0) { throw "PyInstaller-Fehler" }

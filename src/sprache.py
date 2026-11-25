@@ -1,7 +1,8 @@
 r"""Sprachen der Oberfläche: alle sichtbaren Texte stehen in Sprachdateien, nicht im Code.
 
-Ordner: <Programmordner>\sprachen\ (mit dem Programm ausgeliefert) und zusätzlich %APPDATA%\Transkribieren\sprachen\
-(eigene Übersetzungen ohne Schreibrecht im Programmordner). Jede gültige Datei <code>.txt dort ist wählbar.
+Deutsch und Englisch sind fest eingebaut (Exe: _internal\sprachen_eingebaut). Weitere Sprachen liegen optional in
+<Programmordner>\sprachen\ oder %APPDATA%\Transkribieren\sprachen\; jede gültige Datei <code>.txt dort ist wählbar
+und überschreibt eine eingebaute gleichen Codes. Die Ordner werden nur gelesen, nie angelegt; fehlen sie, läuft alles.
 
 Aufbau einer Sprachdatei (UTF-8):
     # language: English          Kopfzeilen vor dem ersten Eintrag; „language“ erscheint in der Auswahlliste
@@ -25,8 +26,17 @@ def _app_dir():
     return os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 
+def _eingebaut():
+    r"""Deutsch und Englisch fest im Programm: in der Exe unter _internal\sprachen_eingebaut, sonst der Repo-Ordner."""
+    if getattr(sys, "frozen", False):
+        return os.path.join(getattr(sys, "_MEIPASS", _app_dir()), "sprachen_eingebaut")
+    return os.path.join(_app_dir(), "sprachen")
+
+
 APPDATA = os.path.join(os.environ.get("APPDATA", os.path.expanduser("~")), "Transkribieren")
+# Zusätzliche Sprachen (optional, werden nur gelesen, nie angelegt); gleiche Codes überschreiben die eingebauten
 ORDNER = [os.path.join(_app_dir(), "sprachen"), os.path.join(APPDATA, "sprachen")]
+EINGEBAUT = _eingebaut()
 
 _aktiv = {"code": None, "texte": {}, "ref": {}, "kopf": {}}
 
@@ -58,7 +68,7 @@ def lesen(pfad):
 def verfuegbar():
     """Liste (code, name, pfad), nach Name sortiert; bei gleichem Code gilt der Programmordner."""
     gefunden = {}
-    for d in ORDNER:
+    for d in ORDNER + [EINGEBAUT]:
         if not os.path.isdir(d):
             continue
         for f in sorted(os.listdir(d)):
@@ -150,7 +160,7 @@ def pruefbericht():
     alle = verfuegbar()
     ref_pfad = next((p for c, _, p in alle if c == REFERENZ), None)
     if not ref_pfad:
-        return [f"{REFERENZ}.txt fehlt / missing ({', '.join(ORDNER)})"], 1
+        return [f"{REFERENZ}.txt fehlt / missing ({', '.join(ORDNER + [EINGEBAUT])})"], 1
     _, ref, _ = lesen(ref_pfad)
     for c, name, p in alle:
         kopf_, texte, probleme = lesen(p)

@@ -1,6 +1,6 @@
 # language: Deutsch
 # code: de
-# version: 1.0.0
+# version: 1.1.0
 # manual: Anleitung.md
 #
 # Sprachdatei der Oberfläche – Referenz für alle anderen Sprachen.
@@ -98,6 +98,7 @@ dlg.anzeigename = Anzeigename:
 dlg.modell_entfernen = Modell „{name}“ aus dem Profil entfernen?\n(Der Ordner selbst bleibt unverändert.)
 dlg.lauf_aktiv = Ein Lauf ist noch aktiv. Abbrechen und schließen?
 dlg.sprache_neustart = Die Sprache wird beim nächsten Start verwendet. Fenster jetzt neu starten?
+dlg.sprachordner_fehlt = Kein Ordner für weitere Sprachen vorhanden:\n{ordner}\n\nDeutsch und Englisch sind eingebaut. Für weitere Sprachen den Ordner anlegen und Sprachdateien (z. B. fr.txt) hineinlegen.
 dlg.sprache_spaeter = Die Sprache wird nach dem laufenden Auftrag beim nächsten Start verwendet.
 
 # ---------------------------------------------------------------- Reiter Einstellungen
@@ -155,6 +156,7 @@ info.ort_profilordner = Profilordner: {pfad}
 info.ort_zustand = Zustand dieses Rechners: {pfad}
 info.ort_programm = Programmordner: {pfad}
 info.ort_sprache = Sprachdatei: {pfad}
+info.eingebaut = (eingebaut)
 info.ort_anleitung = Anleitung: {pfad}
 info.anleitung = Anleitung öffnen
 info.lizenz_oeffnen = Lizenz öffnen
@@ -162,6 +164,7 @@ info.programmordner = Programmordner öffnen
 info.sprachordner = Sprachordner öffnen
 
 # ---------------------------------------------------------------- Profil, Modelle, Einrichtungsprüfung
+profil.standardname = Standard-Profil
 profil.modell_de = Deutsch (large-v3-turbo-german)
 profil.modell_large = Mehrsprachig, groß (large-v3)
 profil.modell_multi = Mehrsprachig (large-v3-turbo)

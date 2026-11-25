@@ -1,6 +1,6 @@
 # Local Transcriber – Manual for the exe
 
-Version 1.0.0 · © 2026 Prof. Dr. Stefan M. Schulz · License: MIT ·
+Version 1.1.0 · © 2026 Prof. Dr. Stefan M. Schulz · License: MIT ·
 [github.com/SchulzSM/local-transcriber](https://github.com/SchulzSM/local-transcriber) ·
 Questions and bugs: [GitHub Issues](https://github.com/SchulzSM/local-transcriber/issues) · Contact: kommunaut@gmail.com
 
@@ -29,7 +29,7 @@ German version: `Anleitung.md` next to the exe.
 
 | Part | Note |
 |---|---|
-| Program folder `Transkribieren` | from the ZIP; extract it to a **writable** location (e.g. `C:\Tools\Transkribieren` or your user folder). Under `C:\Program Files`, profiles are stored in `%APPDATA%\Transkribieren\profile` instead |
+| Program folder `Transkribieren` | extract it **completely** from the ZIP to a **writable** location (e.g. `C:\Tools\Transkribieren` or your user folder). The exe needs the `_internal` folder next to it; for the desktop, create a shortcut (right-click the exe → *Send to → Desktop*) instead of copying the exe alone. Under `C:\Program Files`, profiles are stored in `%APPDATA%\Transkribieren\profile` instead |
 | ffmpeg | reads every audio and video format; not included for licensing reasons. Windows build from [ffmpeg.org](https://ffmpeg.org/download.html); only `ffmpeg.exe` is needed |
 | Whisper model | folder with `model.bin`, `config.json`, `tokenizer.json`, `vocabulary.json`, `preprocessor_config.json` (CTranslate2 format for faster-whisper); sources in the table below |
 | Computer | Windows 10/11, 64 bit; 8 GB RAM or more; processing time depends on the number of CPU cores |
@@ -48,7 +48,8 @@ One model is enough; remove entries you do not have from the profile.
 
 ## 2. First start and setup
 
-1. Double-click `Transkribieren.exe`. On the first start the program creates a profile named after the computer.
+1. Double-click `Transkribieren.exe`. On the first start the program creates a “Default profile”. The very first
+   start may take a while because the virus scanner checks the program files.
    The interface appears in the Windows language (German or English, otherwise English); change it at the top right
    under **Interface language** (section 12).
 2. **Settings** tab:
@@ -224,6 +225,8 @@ every language. All options: `Transkribieren.exe --cli --help --ui en`.
 | Message / problem | Remedy |
 |---|---|
 | “Setup ✗” | Settings → Check setup; correct the paths with “…”, save |
+| “Failed to load Python DLL …\_internal\python314.dll” | The exe was copied without the `_internal` folder. Use the whole program folder; only a shortcut on the desktop |
+| Window does not appear | Right-click the taskbar icon → “Maximize”. Otherwise the program opens the window centred on the main screen when the saved position is not visible |
 | “Model not found … drive not connected?” | connect the drive or change the model folder in the profile |
 | “ffmpeg not found” | set the path in the profile |
 | Windows shows “Windows protected your PC” (SmartScreen) | “More info” → “Run anyway”; the exe is not signed |
@@ -243,9 +246,12 @@ every language. All options: `Transkribieren.exe --cli --help --ui en`.
   (a separate setting), the names of the output files (`_nurText`, `_protokoll` …), the `.json` and the profiles;
   profiles can therefore be shared between languages.
 - **Manual:** “Open manual” in the About tab opens the manual in the chosen language.
-- **Language files:** in the `sprachen\` folder next to the exe, one text file per language (`de.txt`, `en.txt`).
-  Every file there appears in the selection. Own translations without write access to the program folder:
-  `%APPDATA%\Transkribieren\sprachen\`.
+- **Included:** German and English are built in. French, Spanish and Chinese (simplified) come as language files in
+  the `sprachen\` folder; for these languages the manual is available in English.
+- **Language files:** in the `sprachen\` folder next to the exe, one text file per language (`fr.txt`, `es.txt`,
+  `zh.txt` …). Every file there appears in the selection; a `de.txt` or `en.txt` there replaces the built-in version.
+  Own translations without write access to the program folder: `%APPDATA%\Transkribieren\sprachen\`. The folder is
+  optional: if it is missing, the program keeps running with German and English and does not create it.
 - **Adding a language:**
   1. Copy `en.txt`, e.g. as `fr.txt`.
   2. Adjust the header lines: `# language: Français` (name in the selection), `# code: fr`, `# manual:` (manual, if

@@ -1,5 +1,21 @@
 # Änderungen / Changelog
 
+## 1.1.0 – 25.11.2026
+
+- **Neue Sprachen der Oberfläche:** Französisch, Spanisch und Chinesisch (vereinfacht) als Sprachdateien im Ordner
+  `sprachen\`. / New interface languages: French, Spanish, Chinese (simplified).
+- **Deutsch und Englisch fest eingebaut:** Die Exe läuft auch ohne Ordner `sprachen\`; dieser ist nur noch für weitere
+  Sprachen da, wird gelesen, aber nie angelegt. Vorher erschienen ohne ihn Schlüssel wie `lauf.aendern`.
+- **Fensterposition:** Eine gespeicherte Position gilt nur, wenn das Fenster auf einem angeschlossenen Bildschirm liegt;
+  sonst öffnet es mittig auf dem Hauptbildschirm. Bei minimiertem Fenster wird keine Position gespeichert; ein
+  maximiertes Fenster öffnet wieder maximiert. Vorher konnte das Fenster unsichtbar außerhalb des Bildschirms öffnen.
+- **Neutraler Profilname:** Ein neues Profil heißt „Standard-Profil“ (je nach Sprache) statt nach dem Rechnernamen.
+- **Schnellerer Start der Exe:** Die Einrichtungsprüfung liest die Versionen nur aus, statt faster-whisper und PyTorch
+  zu laden.
+- Protokolldatei: Spalten bleiben auch mit chinesischen Beschriftungen bündig.
+- Anleitungen: ganzen Programmordner entpacken (die Exe braucht `_internal`), auf dem Desktop nur eine Verknüpfung;
+  erster Start kann wegen des Virenscanners länger dauern.
+
 ## 1.0.0 – 24.11.2026
 
 Erste öffentliche Version. / First public release.

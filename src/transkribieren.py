@@ -329,10 +329,14 @@ def protokoll(basis, a, lauf, status):
     ausg = lauf.get("ausgaben", []) or ["–"]
     felder += [("ausgabe", ausg[0])] + [("", x) for x in ausg[1:]]
     felder += [None, ("befehlszeile", subprocess.list2cmdline(sys.argv))]
+    import unicodedata
+
+    def b(s):  # Anzeigebreite: chinesische/japanische Zeichen zählen doppelt
+        return sum(2 if unicodedata.east_asian_width(c) in "WF" else 1 for c in s)
     namen = {k: (t(f"prot.feld.{k}") + ":" if k else "") for k in (f[0] for f in felder if f)}
-    breite = max(len(v) for v in namen.values()) + 2
+    breite = max(b(v) for v in namen.values()) + 2
     zeilen = [f"{t('app.name')} – {t('prot.titel')}"]
-    zeilen += ["" if f is None else namen[f[0]].ljust(breite) + f[1] for f in felder]
+    zeilen += ["" if f is None else namen[f[0]] + " " * (breite - b(namen[f[0]])) + f[1] for f in felder]
     with open(basis + "_protokoll.txt", "w", encoding="utf-8") as f:
         f.write("\n".join(zeilen) + "\n")
 

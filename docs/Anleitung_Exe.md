@@ -1,6 +1,6 @@
 # Transkribieren (lokal) – Anleitung für die Exe
 
-Version 1.0.0 · © 2026 Prof. Dr. Stefan M. Schulz · Lizenz: MIT ·
+Version 1.1.0 · © 2026 Prof. Dr. Stefan M. Schulz · Lizenz: MIT ·
 [github.com/SchulzSM/local-transcriber](https://github.com/SchulzSM/local-transcriber) ·
 Fragen und Fehler: [GitHub Issues](https://github.com/SchulzSM/local-transcriber/issues) · Kontakt: kommunaut@gmail.com
 
@@ -29,7 +29,7 @@ English: see `Manual_en.md` next to the exe.
 
 | Teil | Hinweis |
 |---|---|
-| Programmordner `Transkribieren` | aus dem ZIP; an einen **beschreibbaren** Ort entpacken (z. B. `C:\Tools\Transkribieren` oder in den Benutzerordner). Unter `C:\Program Files` liegen Profile stattdessen in `%APPDATA%\Transkribieren\profile` |
+| Programmordner `Transkribieren` | aus dem ZIP **vollständig** an einen **beschreibbaren** Ort entpacken (z. B. `C:\Tools\Transkribieren` oder in den Benutzerordner). Die Exe braucht den Ordner `_internal` daneben; für den Desktop eine Verknüpfung anlegen (Rechtsklick auf die Exe → *Senden an → Desktop*), nicht die Exe allein kopieren. Unter `C:\Program Files` liegen Profile stattdessen in `%APPDATA%\Transkribieren\profile` |
 | ffmpeg | liest jedes Audio- und Videoformat; aus Lizenzgründen nicht enthalten. Windows-Fassung von [ffmpeg.org](https://ffmpeg.org/download.html), gebraucht wird nur `ffmpeg.exe` |
 | Whisper-Modell | Ordner mit `model.bin`, `config.json`, `tokenizer.json`, `vocabulary.json`, `preprocessor_config.json` (CTranslate2-Format für faster-whisper); Bezugsquellen in der Tabelle unten |
 | Rechner | Windows 10/11, 64 Bit; 8 GB Arbeitsspeicher oder mehr; die Rechenzeit hängt an der Zahl der Prozessorkerne |
@@ -48,7 +48,8 @@ Es genügt ein Modell; nicht vorhandene Einträge lassen sich im Profil entferne
 
 ## 2. Erster Start und Einrichtung
 
-1. `Transkribieren.exe` doppelklicken. Beim ersten Start legt das Programm ein Profil mit dem Rechnernamen an.
+1. `Transkribieren.exe` doppelklicken. Beim ersten Start legt das Programm ein „Standard-Profil“ an. Der allererste
+   Start kann etwas dauern, weil der Virenscanner die Programmdateien prüft.
    Die Oberfläche erscheint in der Sprache von Windows (Deutsch oder Englisch, sonst Englisch); umstellen oben rechts
    unter **Sprache der Oberfläche** (Abschnitt 12).
 2. Reiter **Einstellungen**:
@@ -222,6 +223,8 @@ Werte ohne Angabe kommen aus dem Profil (Standard: zuletzt in der Oberfläche ak
 | Meldung / Problem | Abhilfe |
 |---|---|
 | „Einrichtung ✗“ | Einstellungen → Einrichtung prüfen; Pfade per „…“ korrigieren, speichern |
+| „Failed to load Python DLL …\_internal\python314.dll“ | Die Exe wurde ohne den Ordner `_internal` kopiert. Den ganzen Programmordner verwenden; auf dem Desktop nur eine Verknüpfung |
+| Fenster erscheint nicht | Taskleistensymbol: Rechtsklick → „Maximieren“. Das Programm öffnet das Fenster sonst mittig auf dem Hauptbildschirm, wenn die gespeicherte Position nicht sichtbar ist |
 | „Modell nicht gefunden … Laufwerk nicht verbunden?“ | Laufwerk anschließen oder Modellordner im Profil ändern |
 | „ffmpeg nicht gefunden“ | Pfad im Profil setzen |
 | Windows meldet „Der Computer wurde geschützt“ (SmartScreen) | „Weitere Informationen“ → „Trotzdem ausführen“; die Exe ist nicht signiert |
@@ -241,9 +244,12 @@ Werte ohne Angabe kommen aus dem Profil (Standard: zuletzt in der Oberfläche ak
   die Sprache der Aufnahme (eigene Einstellung), die Dateinamen der Ergebnisse (`_nurText`, `_protokoll` …), die
   `.json` und die Profile; Profile lassen sich daher zwischen Sprachen austauschen.
 - **Anleitung:** „Anleitung öffnen“ im Reiter Info öffnet die Anleitung in der gewählten Sprache.
-- **Sprachdateien:** im Ordner `sprachen\` neben der Exe, je Sprache eine Textdatei (`de.txt`, `en.txt`). Jede Datei
-  dort erscheint in der Auswahl. Eigene Übersetzungen ohne Schreibrecht im Programmordner:
-  `%APPDATA%\Transkribieren\sprachen\`.
+- **Mitgeliefert:** Deutsch und Englisch sind fest eingebaut. Französisch, Spanisch und Chinesisch (vereinfacht)
+  liegen als Sprachdateien im Ordner `sprachen\`; die Anleitung gibt es für diese Sprachen auf Englisch.
+- **Sprachdateien:** im Ordner `sprachen\` neben der Exe, je Sprache eine Textdatei (`fr.txt`, `es.txt`, `zh.txt` …).
+  Jede Datei dort erscheint in der Auswahl; eine Datei `de.txt` oder `en.txt` dort ersetzt die eingebaute Fassung.
+  Eigene Übersetzungen ohne Schreibrecht im Programmordner: `%APPDATA%\Transkribieren\sprachen\`. Der Ordner ist
+  optional: Fehlt er, läuft das Programm mit Deutsch und Englisch weiter und legt ihn nicht an.
 - **Neue Sprache anlegen:**
   1. `en.txt` kopieren, z. B. als `fr.txt`.
   2. Kopfzeilen anpassen: `# language: Français` (Name in der Auswahl), `# code: fr`, `# manual:` (Anleitung, falls
